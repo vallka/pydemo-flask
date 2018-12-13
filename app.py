@@ -43,7 +43,7 @@ def instagram():
         response = urlopen(ff)
         
 
-        f = open(filename, "wb")
+        f = open(os.path.realpath(os.path.dirname(__file__)) + '/' + filename, "wb")
         f.write(response.read()) 
         f.close()
 
@@ -60,7 +60,7 @@ def upload():
     if request.method == 'POST':
         f = request.files['file']
         filename = 'static/uploads/' + secure_filename(f.filename)
-        f.save(filename)
+        f.save(os.path.realpath(os.path.dirname(__file__)) + '/' + filename)
 
         ret = process_file(filename)
 
@@ -116,8 +116,8 @@ def process_file(filename):
 
     faces_detected_filename = 'static/created/'+file
     hair_filename = 'static/created/hair_'+file
-    cv2.imwrite(faces_detected_filename,faces_detected_img)  
-    cv2.imwrite(hair_filename,hair)  
+    cv2.imwrite(os.path.realpath(os.path.dirname(__file__)) + '/' + faces_detected_filename,faces_detected_img)  
+    cv2.imwrite(os.path.realpath(os.path.dirname(__file__)) + '/' + hair_filename,hair)  
 
     data = np.reshape(hair, (-1,3))
     #print(data.shape)
@@ -134,7 +134,7 @@ def process_file(filename):
     res = centers[labels.flatten()]
     hair2 = res.reshape((hair.shape))
     hair2_filename = 'static/created/hair2_'+file
-    cv2.imwrite(hair2_filename,hair2)  
+    cv2.imwrite(os.path.realpath(os.path.dirname(__file__)) + '/' + hair2_filename,hair2)  
 
     y=labels.flatten()
     c = [np.count_nonzero(y == 0),np.count_nonzero(y == 1),np.count_nonzero(y == 2)]
@@ -156,7 +156,7 @@ def process_file(filename):
     img[:,:,2] = centers[mc][2]
 
     color_filename = 'static/created/color_'+file
-    cv2.imwrite(color_filename,img)  
+    cv2.imwrite(os.path.realpath(os.path.dirname(__file__)) + '/' + color_filename,img)  
 
     color = centers[mc]
     cc = get_color_samples()
@@ -212,7 +212,7 @@ def get_color_samples():
     colorsamples = []
     for path in pathlist:
         path_in_str = str(path)
-        print (path.name)
+        #print (path.name)
         test = cv2.imread(path_in_str)  
         #cv2.imwrite(path_in_str+'.jpg',test)
         data = np.reshape(test, (-1,3))
@@ -242,7 +242,7 @@ def create_plain_colors(cc):
         img[:,:,1] = c[1][1]
         img[:,:,2] = c[1][2]
 
-        cv2.imwrite(plain_filename,img)  
+        cv2.imwrite(os.path.realpath(os.path.dirname(__file__)) + '/' + plain_filename,img)  
 
 
 
