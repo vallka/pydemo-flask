@@ -13,7 +13,7 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template("about.html",cwd=os.getcwd(),file=__file__,dir=os.path.realpath(__file__))
+    return render_template("about.html",cwd=os.getcwd(),file=__file__,dir=os.path.realpath(os.path.dirname(__file__)))
 
 @app.route('/listcolors')
 def listcolors():
@@ -206,7 +206,7 @@ def detect_faces(colored_img, scaleFactor = 1.2):
 def get_color_samples():
     from pathlib import Path
 
-    p = Path('static/colors')
+    p = Path(os.path.realpath(os.path.dirname(__file__)) + '/static/colors')
     pathlist=p.glob('**/*.jpg')
 
     colorsamples = []
