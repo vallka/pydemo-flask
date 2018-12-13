@@ -9,11 +9,11 @@ app=Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template("home.html")
+    return render_template("home.html",cwd=os.getcwd())
 
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    return render_template("about.html",cwd=os.getcwd())
 
 @app.route('/listcolors')
 def listcolors():
