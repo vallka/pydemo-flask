@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block title %}Upload Photo{% endblock title %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #3af016; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#file").change(function(){
+                $("#form").submit()
+            });
+        });
+    </script>
+
+{% endblock head %}
+{% block content %}
+
+{% if filename %}
+    <!-- div class="imageset">
+        <img src="/{{ filename }}" />
+    </div
+    -->
+
+    <style>
+            #theimage {
+                background-image: url({{ filename }});
+            }
+            #image1 {
+                background-image: url(/{{ file1 }});
+            }
+        </style>
+    
+        <div class="imageset" id="theimage">
+        </div>
+    
+        <div class="imageset" id="image1">
+        </div>
+    
+    
+        <div class="imageset" id="image3">
+                <img src="/static/colors/{{file5}}" />
+    
+                <div id="image2">
+                        <img src="/{{file2}}" />
+                        <img src="/{{file3}}" />
+                        <img src="/{{file4}}" />
+                        <img src="/static/plain_colors/{{file5}}" />
+                </div>
+                
+    
+        </div>
+        
+    <div style="clear:both"></div>
+
+    <div class="msg">
+        {{msg}}
+    </div>
+
+
+
+{% endif %}
+
+    <h1>Upload New Photo</h1>
+
+    <form id="form" action = "/upload" method = "POST" 
+    enctype = "multipart/form-data">
+    <input type="file" name="file" id="file" />
+
+ </form>
+
+{% endblock content %}
+

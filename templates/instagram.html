@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block title %}Instagram Photo{% endblock title %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #3af016; }
+        input.url {width: 300px;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#file").change(function(){
+                $("#form").submit()
+            });
+        });
+    </script>
+
+{% endblock head %}
+{% block content %}
+
+{% if filename %}
+    <!--
+    <div class="imageset">
+        {{ filename }}
+    </div>
+    -->
+
+    <style>
+        #theimage {
+            background-image: url({{ filename }});
+        }
+        #image1 {
+            background-image: url(/{{ file1 }});
+        }
+    </style>
+
+    <div class="imageset" id="theimage">
+    </div>
+
+    <div class="imageset" id="image1">
+    </div>
+
+
+    <div class="imageset" id="image3">
+            <img src="/static/colors/{{file5}}" />
+
+            <div id="image2">
+                    <img src="/{{file2}}" />
+                    <img src="/{{file3}}" />
+                    <img src="/{{file4}}" />
+                    <img src="/static/plain_colors/{{file5}}" />
+            </div>
+            
+
+    </div>
+    
+    <div style="clear:both"></div>
+
+    <div class="msg">
+        {{msg}}
+    </div>
+
+
+
+{% endif %}
+
+    <h1>Get Photo from Instagram</h1>
+
+    <form id="form" action = "/instagram" method = "POST" >
+
+        Instagram photo URL:    
+        <br />
+        Example: <a href="https://www.instagram.com/p/Bq9HVRxH99V/" target="_blank">https://www.instagram.com/p/Bq9HVRxH99V/</a>)
+        
+        <br />
+        Use 
+        <a href="https://www.instagram.com/explore/tags/passportphoto/" target="_blank">#passportphoto</a>
+         tag to search for most useful images
+        <br />
+        <br />
+        
+        <input type="text" name="file" class="url" />
+
+        <p>
+
+        <input type="submit" value="Submit" />
+
+    </form>
+
+{% endblock content %}
+

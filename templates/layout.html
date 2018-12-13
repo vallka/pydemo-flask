@@ -7,16 +7,23 @@
     {% endblock %}
 </head>
 <body>
-    <div id="nav">
+    <div id="nav" class="nav">
         <ul>
             <li><a href="{{url_for('home')}}">Home</a></li>
-            <li><a href="{{url_for('about')}}">aBout</a></li>
+            <li><a href="{{url_for('upload')}}">Upload Photo</a></li>
+            <li><a href="{{url_for('instagram')}}">Instagram Photo</a></li>
+            <li><a href="{{url_for('listcolors')}}">List Colors</a></li>
+            
+            <li><a href="{{url_for('about')}}">About</a></li>
         </ul>
+        <div style="clear:both"></div>
     </div>
-        <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
+    
+    <div id="content" class="content">{% block content %}{% endblock %}</div>
+    
+    <div id="footer" class="footer">
         {% block footer %}
-        &copy; Copyright 2018 by <a href="http://vallka.com/">vallka</a>.
+        &copy; Copyright 2018 by <a href="http://vallka.com/" target="_blank">vallka</a>.
         {% endblock %}
     </div>
 </body>

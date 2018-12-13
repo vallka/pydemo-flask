@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}List Colors{% endblock title %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #ec3d1e; }
+        ol img {
+            width: 200px;
+        }
+    </style>
+{% endblock head %}
+{% block content %}
+    <h1>List Colors</h1>
+
+    <ol>
+    {% for x in colors %}
+        <li> 
+            <img src="/static/colors/{{ x[0] }}" /> 
+            <img src="/static/plain_colors/{{ x[0] }}" /> 
+            {{x[1]}}  
+        </li>
+    {% endfor %}
+    </ol>
+
+{% endblock content %}
+

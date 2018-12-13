@@ -5,3 +5,80 @@ h1 {
 h4 {
     color: gold;
 }
+
+div.nav {
+    padding: 10px;
+    margin: 0;
+    background-color: navy;
+    color: white;
+}
+.nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    float: left;
+    /*width: 120px;*/
+    background-color: navy;
+    color: white;
+    padding:10px;
+    list-style:none;
+}
+
+.nav li  a{
+    color: white;
+}
+
+.nav li  a:hover{
+    color: yellow;
+}
+
+div.content {
+    padding: 10px;
+    margin: 0;
+    min-height: 500px;
+}
+
+div.footer {
+    padding: 10px;
+    margin: 0;
+    background-color: navy;
+    color: white;
+}
+
+.footer a{
+    color: white;
+}
+
+.footer a:hover{
+    color: yellow;
+}
+
+.imageset {
+    width: 300px;
+}
+
+.imageset img {
+    width:100%;
+}
+
+.imageset {
+    width: 400px;
+    height: 400px;
+    float: left;
+    margin: 5px;
+}
+#theimage {
+    background-size: cover;
+    background-position: center top;
+}
+#image1 {
+    background-size: cover;
+    background-position: center top;
+}
+#image2 {
+    width: 200px;
+    margin-top:20px;
+}
+

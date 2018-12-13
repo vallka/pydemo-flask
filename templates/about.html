@@ -2,18 +2,15 @@
 {% block title %}Home{% endblock title %}
 {% block head %}
     {{ super() }}
-    <style type="text/css">
-        .important { color: #ec3d1e; }
-    </style>
 {% endblock head %}
 {% block content %}
     <h1>About</h1>
-    <p class="important">
-      Tha ebout page.
+    <p>
+        This is a demo version of 
+        <b>Hair color analyzer of a picture</b>
     </p>
+    <p>
+        Uses Python 3.6 and OpenCV 4.0
+        </p>
 {% endblock content %}
 
-{% block footer %}
-<h4>aboutfooter</h4>
-{{ super() }}
-{% endblock footer %}
