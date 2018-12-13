@@ -176,7 +176,7 @@ def process_file(filename):
 
 
 def detect_faces(colored_img, scaleFactor = 1.2):
-    haar_face_cascade = cv2.CascadeClassifier('data/haarcascade_frontalface_alt.xml')
+    haar_face_cascade = cv2.CascadeClassifier(os.path.realpath(os.path.dirname(__file__)) + '/' + 'data/haarcascade_frontalface_alt.xml')
     f_cascade = haar_face_cascade
 
     img_copy = colored_img.copy()          
