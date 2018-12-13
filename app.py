@@ -13,7 +13,7 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template("about.html",cwd=os.getcwd())
+    return render_template("about.html",cwd=os.getcwd(),file=__file__,dir=os.path.realpath(__file__))
 
 @app.route('/listcolors')
 def listcolors():
