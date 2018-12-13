@@ -77,7 +77,7 @@ def process_file(filename):
     text = ''
     #text = path + '*' +file+' |'
 
-    img = cv2.imread(filename)  
+    img = cv2.imread(os.path.realpath(os.path.dirname(__file__)) + '/' + filename)  
     faces_detected_img,x,y,w,h,y0,h0 = detect_faces(img,1.1)  
 
     if x<0:
