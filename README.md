@@ -15,3 +15,6 @@ It only uses a single color for matching. Obviously, some patterns have two or m
 It is VE-E-E-E-RY slow on pythonanywhere.com! (at least at it's free account) On my local machine it is much much quicker. Seconds... I even had to change the face detection method to from slower-but-more-presize to a faster-but-less-presize when deploying to pythonanywhere.
 
 Thank you for looking! 
+
+Working version on pythonanywhere:
+http://vallka.pythonanywhere.com/
